@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azar CI - Officiel 🇨🇮</title>
+    <style>
+        body { margin: 0; background: #1a1a1a; color: white; font-family: sans-serif; text-align: center; }
+        .header { background: #FF8200; padding: 15px; font-weight: bold; font-size: 20px; }
+        .video-box { width: 90%; height: 300px; background: #000; margin: 20px auto; border: 3px solid #009E60; border-radius: 15px; overflow: hidden; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+        .btn { background: #FF8200; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 18px; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body>
+    <div class="header">AZAR CÔTE D'IVOIRE 🇨🇮</div>
+    <div class="video-box">
+        <video id="maVideo" autoplay playsinline></video>
+    </div>
+    <button class="btn" onclick="allumer()">LANCER LA CAMÉRA</button>
+    <script>
+        async function allumer() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById('maVideo').srcObject = stream;
+            } catch (e) { alert("Active la caméra stp !"); }
+        }
+    </script>
+</body>
+</html>
 
